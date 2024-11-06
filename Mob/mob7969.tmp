@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpksf4bb3g3ya"]
+
+[ext_resource type="Script" path="res://Mob/mob.gd" id="1_j6fh4"]
+[ext_resource type="Texture2D" uid="uid://dtepgkwabsya5" path="res://Mob/Animations/FLYING.png" id="1_nw1c7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0m87"]
+atlas = ExtResource("1_nw1c7")
+region = Rect2(0, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2k4n"]
+atlas = ExtResource("1_nw1c7")
+region = Rect2(79, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maqu6"]
+atlas = ExtResource("1_nw1c7")
+region = Rect2(158, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6rql"]
+atlas = ExtResource("1_nw1c7")
+region = Rect2(237, 0, 79, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlx3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0m87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2k4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maqu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6rql")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exuet"]
+size = Vector2(73, 70)
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_j6fh4")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jlx3i")
+animation = &"flying"
+frame = 3
+frame_progress = 0.51699
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_exuet")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
