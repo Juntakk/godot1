@@ -39,6 +39,10 @@ rotation = 0.00416664
 
 [node name="HUD" parent="." instance=ExtResource("4_mqohv")]
 
+[node name="BgShowTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

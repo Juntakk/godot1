@@ -39,26 +39,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_exuet"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiykv"]
+size = Vector2(128.704, 125.97)
 
 [node name="Mob" type="RigidBody2D"]
-position = Vector2(355, 485)
-scale = Vector2(2.011, 1.615)
+position = Vector2(33, 19)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_j6fh4")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 1.25)
+scale = Vector2(0.987342, 0.963768)
 sprite_frames = SubResource("SpriteFrames_jlx3i")
 animation = &"flying"
 frame = 3
 frame_progress = 0.51699
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-176.529, -300.31)
+position = Vector2(-4, 1)
+rotation = 1.5708
 scale = Vector2(0.497265, 0.619195)
-shape = SubResource("RectangleShape2D_exuet")
+shape = SubResource("RectangleShape2D_fiykv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-4.5, 0)
+position = Vector2(-4, 0)
+scale = Vector2(3.3, 2.6)

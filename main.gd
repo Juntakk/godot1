@@ -24,6 +24,7 @@ func new_game():
 	$HUD.show_message("Get Ready")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$HUD/StartBackground.hide()
 
 func _on_score_timer_timeout():
 	score += 1
