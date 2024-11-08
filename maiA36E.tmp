@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4fjoxuts72ch"]
+[gd_scene load_steps=6 format=3 uid="uid://c4fjoxuts72ch"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_h4owy"]
 [ext_resource type="PackedScene" uid="uid://culic6o7og8ku" path="res://Samurai/player.tscn" id="1_tw1ov"]
 [ext_resource type="PackedScene" uid="uid://cpksf4bb3g3ya" path="res://Mob/mob.tscn" id="2_w7ke1"]
 [ext_resource type="PackedScene" uid="uid://bmsejmdj4u3ej" path="res://hud.tscn" id="4_mqohv"]
 
+[sub_resource type="Curve2D" id="Curve2D_fcu7s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1912, 1088, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, -8)
+}
+point_count = 5
+
 [node name="Main" type="Node"]
 script = ExtResource("1_h4owy")
+
+[node name="Mob" parent="." instance=ExtResource("2_w7ke1")]
 
 [node name="Player" parent="." instance=ExtResource("1_tw1ov")]
 position = Vector2(145, 431)
@@ -24,13 +32,18 @@ one_shot = true
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(240, 450)
 
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fcu7s")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(0, -8)
+rotation = 0.00416664
+
 [node name="HUD" parent="." instance=ExtResource("4_mqohv")]
 
 [node name="BgShowTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="Mob" parent="." instance=ExtResource("2_w7ke1")]
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

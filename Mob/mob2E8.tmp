@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpksf4bb3g3ya"]
+[gd_scene load_steps=9 format=3 uid="uid://cpksf4bb3g3ya"]
 
 [ext_resource type="Script" path="res://Mob/mob.gd" id="1_j6fh4"]
 [ext_resource type="Texture2D" uid="uid://dtepgkwabsya5" path="res://Mob/Animations/FLYING.png" id="1_nw1c7"]
-[ext_resource type="PackedScene" uid="uid://culic6o7og8ku" path="res://Samurai/player.tscn" id="3_j42fd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0m87"]
 atlas = ExtResource("1_nw1c7")
@@ -67,5 +66,3 @@ shape = SubResource("RectangleShape2D_fiykv")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-4, 0)
 scale = Vector2(3.3, 2.6)
-
-[node name="Player" parent="." instance=ExtResource("3_j42fd")]

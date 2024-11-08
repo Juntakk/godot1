@@ -146,16 +146,26 @@ animations = [{
 size = Vector2(19, 35)
 
 [node name="Player" type="Area2D"]
+position = Vector2(128, 20)
 scale = Vector2(3, 3)
 script = ExtResource("1_ryih7")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 18)
+scale = Vector2(0.815972, 0.875)
 sprite_frames = SubResource("SpriteFrames_fc2mk")
-animation = &"hurt"
+animation = &"idle"
+offset = Vector2(-2.65532, -14.0952)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 15.5)
 shape = SubResource("RectangleShape2D_fuhus")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
